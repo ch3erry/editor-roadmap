@@ -1,184 +1,127 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* 1. 基础容器：居中并且限制最大宽度*/
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #F2F3F0;
+  min-height: 100vh; /* 页面填满整个视口 */
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+/* 2. 通用面板类：实现卡片感的核心*/
+.panel {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e6ed;
 }
 
-#center {
+/* 3. 顶部的页眉区域*/
+/* 外层：控制左右分布 */
+.header-section {
+  display: flex;
+  justify-content: space-between; /* 左右两端对齐 */
+  align-items: center;   
+}
+
+/* 内层：控制文字垂直排列 */
+.header-text-group {
+  display: flex;
+  flex-direction: column;         /* 关键：强制文字垂直排列 */
+  align-items: flex-start;        /* 确保文字全部左对齐 */
+  text-align: left;               /* 针对文字内容的左对齐 */
+  gap: 4px;                       /* 控制 p 和 h1 之间的间距 */
+}
+
+/* 细节微调：消除 h1 默认的自带外边距，防止顶开布局 */
+.header-text-group .title {
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* 日期微调 */
+.date-badge {
+  white-space: nowrap;            /* 防止日期换行 */
+  margin-top: 4px;                /* 如果顶部对齐，加点位移让它和第一行文字平齐 */
+}
+
+/* 4. 统计卡片区域：横向排列 */
+.summary-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.summary-card {
+  flex: 1; /* 平分空间 */
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e0e6ed;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  align-items: center;
 }
 
-#next-steps {
+.summary-card .label { color: #666; font-size: 0.9rem; }
+.summary-card .value { font-size: 1.5rem; color: #333; margin-top: 4px; }
+
+/* 5. 筛选过滤区域 */
+.filter-group {
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  align-items: center;
+  gap: 0.8rem;
+}
+.prompt-text { color: #999; font-size: 0.8rem; flex-grow: 1; margin: 0; }
+.filter-btn {
+  padding: 6px 16px;
+  border: 1px solid #dcdfe6;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn.active {
+  background: #4c6ef5;
+  color: white;
+  border-color: #4c6ef5;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+/* 6. 任务列表区域 */
+.task-list-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
+.task-list-header h2 { color: #999; margin: 0; font-size: 1.2rem; }
+.task-meta { font-size: 0.85rem; color: #999; margin: 4px 0 0; }
 
-#next-steps ul {
+.task-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+.task-item-wrapper {
+  margin-bottom: 0.8rem;
+}
+.task-item {
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #fcfcfc;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
 }
+.task-info h3 { margin: 0; font-size: 1rem; color: #333; }
+.task-info p { margin: 4px 0 0; font-size: 0.85rem; color: #777; }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+/* 状态标签 */
+.status-badge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
 }
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
-}
+.status-badge.done { background: #e6fffa; color: #38b2ac; }
+.status-badge.todo { background: #fffaf0; color: #ed8936; }

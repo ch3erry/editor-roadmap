@@ -217,6 +217,8 @@ App.tsx 持有 tasks，通过 props 传给 TaskList 更符合 React 的单向数
 
 先只改 src/App.tsx，但暂时不要引入 Header、SummaryCards 这些新组件文件。我们先把模板代码删掉，换成一个最小的静态骨架，确保页面依然能跑。
 
+目前已经完成，可以看到
+
 
 
 

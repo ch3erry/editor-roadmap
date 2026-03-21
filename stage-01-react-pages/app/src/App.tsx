@@ -5,10 +5,15 @@ function App() {
     <main className='app-container'>
       {/* 1. 顶部页眉区域 */}
       <header className="panel header-section">
-        <p className="stage-tag">Stage 01 · React Pages</p>
-        <h1 className="title">今日任务面板</h1>
-        <p className="description">用清晰的页面结构练习组件拆分、Props 传值和后续状态管理</p>
-        <time className="date-badge">2026-03-21</time>
+        {/* 左侧容器：内部文字依然是从上到下排列 */}
+        <div className="header-text-group">
+          <p className="stage-tag">Stage 01 · React Pages</p>
+          <h1 className="title">今日任务面板</h1>
+          <p className="description">用清晰的页面结构练习组件拆分、Props 传值和后续状态管理</p>
+        </div>
+
+        {/* 右侧：日期 */}
+        <time dateTime="2026-03-21">2026-03-21</time>
       </header>
 
       {/* 2. 统计卡片区域 */}
