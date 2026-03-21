@@ -371,7 +371,7 @@ export type Task = {
 * **不要 `priority`**：界面上还没画星星或者颜色等级。
 * **不要 `assignee`**：目前是单机版任务，没有“负责人”概念。
 
-**下面进入拆分前的最后一个设计动作：给TaskList和 TaskCard 写最小props类型**
+最后实现都比较简单，已经完成
 
 # main.tsx 的 StrictMode 和 App.tsx 的 useState
 
