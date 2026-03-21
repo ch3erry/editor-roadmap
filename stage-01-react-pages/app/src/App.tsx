@@ -2,95 +2,108 @@ import './App.css'
 
 function App() {
   return (
-    <main className='app-container'>
-      {/* 1. 顶部页眉区域 */}
+    <main className="app-container">
       <header className="panel header-section">
-        {/* 左侧容器：内部文字依然是从上到下排列 */}
         <div className="header-text-group">
           <p className="stage-tag">Stage 01 · React Pages</p>
           <h1 className="title">今日任务面板</h1>
-          <p className="description">用清晰的页面结构练习组件拆分、Props 传值和后续状态管理</p>
+          <p className="description">
+            用清晰的页面结构练习组件拆分、Props 传值与后续状态管理。
+          </p>
         </div>
-
-        {/* 右侧：日期 */}
-        <time dateTime="2026-03-21">2026-03-21</time>
+        <time className="date-badge" dateTime="2026-03-21">
+          2026-03-21
+        </time>
       </header>
 
-      {/* 2. 统计卡片区域 */}
-      <section className="summary-section">
+      <section className="summary-section" aria-label="任务摘要">
         <article className="summary-card">
-          <span className="label">总任务数</span>
-          <strong className="value">4</strong>
+          <p className="summary-label">总任务数</p>
+          <strong className="summary-value">4</strong>
+          <p className="summary-note">当前列表中的全部任务。</p>
         </article>
         <article className="summary-card">
-          <span className="label">已完成</span>
-          <strong className="value">2</strong>
+          <p className="summary-label">已完成</p>
+          <strong className="summary-value summary-value--success">2</strong>
+          <p className="summary-note">后续可由 props 或简单计算得出。</p>
         </article>
         <article className="summary-card">
-          <span className="label">未完成</span>
-          <strong className="value">2</strong>
+          <p className="summary-label">未完成</p>
+          <strong className="summary-value summary-value--warning">2</strong>
+          <p className="summary-note">为 REQ-02 与 REQ-03 预留状态流转。</p>
         </article>
       </section>
 
-      {/* 3. 筛选过滤区域 */}
       <section className="panel filter-section">
-        <div className="filter-group">
-          <p className="prompt-text">静态展示筛选按钮，REQ-02在接入state和条件渲染</p>
-          <button type="button" className="filter-btn active">全部</button>
-          <button type="button" className="filter-btn">进行中</button>
-          <button type="button" className="filter-btn">已完成</button>
+        <p className="prompt-text">
+          静态展示筛选按钮，REQ-02 再接入 state 与条件渲染。
+        </p>
+        <div className="filter-tabs" role="group" aria-label="任务筛选">
+          <button type="button" className="filter-btn active">
+            全部
+          </button>
+          <button type="button" className="filter-btn">
+            进行中
+          </button>
+          <button type="button" className="filter-btn">
+            已完成
+          </button>
         </div>
       </section>
 
-      {/* 4. 任务列表区域 */}
       <section className="panel task-section">
         <div className="task-list-header">
-          <h2>任务列表</h2>
-          <p className="task-meta">当前共有 4 条静态示例任务</p>
+          <h2 className="task-list-title">任务列表</h2>
+          <p className="task-meta">4 个静态示例任务</p>
         </div>
 
         <ul className="task-list">
-          {/* 任务项 1 */}
           <li className="task-item-wrapper">
             <article className="task-item">
               <div className="task-info">
-                <h3>学习 React 基础</h3>
-                <p>掌握 JSX 语法和组件基本定义</p>
+                <h3 className="task-title">完成 Stage 1 项目初始化</h3>
+                <p className="task-description">
+                  确认入口文件、能启动本地开发环境，并理解页面最基础的结构划分。
+                </p>
               </div>
-              <span className="status-badge done">已完成</span>
+              <span className="status-badge status-badge--done">已完成</span>
             </article>
           </li>
 
-          {/* 任务项 2 */}
           <li className="task-item-wrapper">
             <article className="task-item">
               <div className="task-info">
-                <h3>拆分表现层组件</h3>
-                <p>将 App.tsx 重构为多个独立子组件</p>
+                <h3 className="task-title">拆分 Header 与 SummaryCards 组件</h3>
+                <p className="task-description">
+                  先把静态页面切成清晰结构，为 props 传值与组合组件做准备。
+                </p>
               </div>
-              <span className="status-badge todo">进行中</span>
+              <span className="status-badge status-badge--progress">进行中</span>
             </article>
           </li>
 
-          {/* 任务项 3 */}
           <li className="task-item-wrapper">
             <article className="task-item">
               <div className="task-info">
-                <h3>定义任务数据类型</h3>
-                <p>使用 TypeScript 为 Task 编写 Interface</p>
+                <h3 className="task-title">准备静态任务数据结构</h3>
+                <p className="task-description">
+                  先约定 title、description 与 status 三类字段，方便后续用 map
+                  渲染列表。
+                </p>
               </div>
-              <span className="status-badge todo">进行中</span>
+              <span className="status-badge status-badge--done">已完成</span>
             </article>
           </li>
 
-          {/* 任务项 4 */}
           <li className="task-item-wrapper">
             <article className="task-item">
               <div className="task-info">
-                <h3>实现静态 Props 传值</h3>
-                <p>将静态数据从 App 传递到 TaskList</p>
+                <h3 className="task-title">为 REQ-03 预留新增任务入口</h3>
+                <p className="task-description">
+                  当前不接表单与完成状态切换，只保留可扩展的任务列表结构。
+                </p>
               </div>
-              <span className="status-badge done">已完成</span>
+              <span className="status-badge status-badge--progress">进行中</span>
             </article>
           </li>
         </ul>

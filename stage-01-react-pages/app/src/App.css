@@ -1,127 +1,310 @@
-/* 1. 基础容器：居中并且限制最大宽度*/
 .app-container {
-  max-width: 800px;
+  --surface-primary: #ffffff;
+  --surface-secondary: #f6f6f1;
+  --border-strong: #cbccc9;
+  --border-soft: #e2e3df;
+  --text-primary: #151515;
+  --text-secondary: #666666;
+  --text-muted: #8b8b87;
+  --success-text: #1f7b4f;
+  --success-bg: #ecf7f0;
+  --warning-text: #9b5f17;
+  --warning-bg: #f6efe2;
+  --radius-panel: 18px;
+  --radius-pill: 999px;
+  min-height: 100vh;
+  width: min(100%, 1260px);
   margin: 0 auto;
-  padding: 2rem;
-  background-color: #F2F3F0;
-  min-height: 100vh; /* 页面填满整个视口 */
-}
-
-/* 2. 通用面板类：实现卡片感的核心*/
-.panel {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e0e6ed;
-}
-
-/* 3. 顶部的页眉区域*/
-/* 外层：控制左右分布 */
-.header-section {
-  display: flex;
-  justify-content: space-between; /* 左右两端对齐 */
-  align-items: center;   
-}
-
-/* 内层：控制文字垂直排列 */
-.header-text-group {
-  display: flex;
-  flex-direction: column;         /* 关键：强制文字垂直排列 */
-  align-items: flex-start;        /* 确保文字全部左对齐 */
-  text-align: left;               /* 针对文字内容的左对齐 */
-  gap: 4px;                       /* 控制 p 和 h1 之间的间距 */
-}
-
-/* 细节微调：消除 h1 默认的自带外边距，防止顶开布局 */
-.header-text-group .title {
-  color: #333;
-  margin: 0;
-  line-height: 1.2;
-}
-
-/* 日期微调 */
-.date-badge {
-  white-space: nowrap;            /* 防止日期换行 */
-  margin-top: 4px;                /* 如果顶部对齐，加点位移让它和第一行文字平齐 */
-}
-
-/* 4. 统计卡片区域：横向排列 */
-.summary-section {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.summary-card {
-  flex: 1; /* 平分空间 */
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid #e0e6ed;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 20px;
 }
 
-.summary-card .label { color: #666; font-size: 0.9rem; }
-.summary-card .value { font-size: 1.5rem; color: #333; margin-top: 4px; }
+.panel {
+  background: var(--surface-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-panel);
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+}
 
-/* 5. 筛选过滤区域 */
-.filter-group {
+.header-section {
   display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.prompt-text { color: #999; font-size: 0.8rem; flex-grow: 1; margin: 0; }
-.filter-btn {
-  padding: 6px 16px;
-  border: 1px solid #dcdfe6;
-  background: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.filter-btn.active {
-  background: #4c6ef5;
-  color: white;
-  border-color: #4c6ef5;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px 22px;
 }
 
-/* 6. 任务列表区域 */
-.task-list-header {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+.header-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 680px;
 }
-.task-list-header h2 { color: #999; margin: 0; font-size: 1.2rem; }
-.task-meta { font-size: 0.85rem; color: #999; margin: 4px 0 0; }
+
+.stage-tag {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.title {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+}
+
+.description {
+  max-width: 640px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.date-badge {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  background: var(--surface-secondary);
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.summary-section {
+  display: flex;
+  gap: 16px;
+}
+
+.summary-card {
+  flex: 1;
+  min-width: 0;
+  min-height: 116px;
+  padding: 22px 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-panel);
+  background: var(--surface-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+}
+
+.summary-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.summary-value {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+  font-size: 2.15rem;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.summary-value--success {
+  color: var(--success-text);
+}
+
+.summary-value--warning {
+  color: var(--warning-text);
+}
+
+.summary-note {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-block: 14px;
+}
+
+.prompt-text {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.filter-tabs {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  background: var(--surface-secondary);
+}
+
+.filter-btn {
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.filter-btn.active {
+  background: var(--surface-primary);
+  border-color: var(--border-soft);
+  color: var(--text-primary);
+  box-shadow: 0 1px 2px rgba(17, 24, 39, 0.06);
+}
+
+.task-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px 18px 16px;
+}
+
+.task-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 4px;
+}
+
+.task-list-title {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+  font-size: 1.65rem;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.task-meta {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
 
 .task-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.task-item-wrapper {
-  margin-bottom: 0.8rem;
-}
+
 .task-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: #fcfcfc;
-  border-radius: 8px;
-  border: 1px solid #f0f0f0;
+  gap: 24px;
+  padding: 18px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  background: var(--surface-secondary);
 }
-.task-info h3 { margin: 0; font-size: 1rem; color: #333; }
-.task-info p { margin: 4px 0 0; font-size: 0.85rem; color: #777; }
 
-/* 状态标签 */
-.status-badge {
-  font-size: 0.75rem;
-  padding: 2px 8px;
-  border-radius: 4px;
+.task-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-.status-badge.done { background: #e6fffa; color: #38b2ac; }
-.status-badge.todo { background: #fffaf0; color: #ed8936; }
+
+.task-title {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.task-description {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.status-badge {
+  flex-shrink: 0;
+  min-width: 72px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-badge--done {
+  color: var(--success-text);
+  background: var(--success-bg);
+  border-color: #d8eadf;
+}
+
+.status-badge--progress {
+  color: #5f5a49;
+  background: #efede4;
+  border-color: #e1ddcf;
+}
+
+@media (max-width: 420px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  .summary-section {
+    flex-direction: column;
+  }
+
+  .filter-section,
+  .task-list-header,
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-tabs,
+  .task-meta,
+  .status-badge {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .panel,
+  .summary-card {
+    padding: 18px;
+  }
+
+  .header-section {
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .task-title {
+    font-size: 1.05rem;
+  }
+}
