@@ -1,19 +1,18 @@
-# Stage 2 REQ-02
+# 阶段 2 REQ-02
 
-## Status
-Draft
+## 状态
+草稿 (Draft)
 
-## Working Title
-Introduce routing and asynchronous UI states
+## 暂定标题
+引入路由与异步 UI 状态
 
-## Placeholder Sections
-- background
-- goal
-- non-goals
-- functional requirements
-- acceptance criteria
-- startup instructions
-- suggested files
-- common pitfalls
-- review focus
-
+## 占位章节
+- 背景 (background)
+- 目标 (goal)
+- 非本阶段目标 (non-goals)
+- 功能需求 (functional requirements)
+- 验收标准 (acceptance criteria)
+- 启动说明 (startup instructions)
+- 建议文件 (suggested files)
+- 常见坑点 (common pitfalls)
+- 评审重点 (review focus)

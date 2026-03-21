@@ -1,0 +1,1 @@
+export type FilterValue = 'all' | 'in-progress' | 'completed'

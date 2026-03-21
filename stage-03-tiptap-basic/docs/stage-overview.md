@@ -1,22 +1,22 @@
-# Stage 3 Overview: Tiptap Basics
+# 阶段 3 概览：Tiptap 基础
 
-## Objective
-Introduce Tiptap through a focused editor application that teaches editor setup, content synchronization, and common formatting workflows.
+## 目标 (Objective)
+通过开发一个专注的编辑器应用来介绍 Tiptap。本阶段将教授如何设置编辑器、实现内容同步以及掌握常见的格式化工作流。
 
-## Scope
-- create the editor instance
-- use `StarterKit`
-- build a basic toolbar
-- serialize to HTML and JSON
-- connect editor content to surrounding React state
+## 范围 (Scope)
+* 创建编辑器实例
+* 使用 `StarterKit` (入门套件)
+* 构建基础工具栏
+* 将内容序列化为 HTML 和 JSON 格式
+* 将编辑器内容与外部 React 状态进行关联
 
-## Requirement Sequence
+## 需求序列 (Requirement Sequence)
+
 ### REQ-01
-Mount the editor and render basic content.
+挂载编辑器并渲染基础内容。
 
 ### REQ-02
-Add formatting controls and useful starter features.
+添加格式化控件和实用的入门功能。
 
 ### REQ-03
-Persist and preview editor content.
-
+持久化并预览编辑器内容。

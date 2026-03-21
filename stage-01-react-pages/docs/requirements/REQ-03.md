@@ -1,22 +1,21 @@
-# Stage 1 REQ-03
+# 阶段 1 REQ-03
 
-## Status
-Draft
+## 状态
+草稿 (Draft)
 
-## Working Title
-Add form state, local persistence, and a small refactor
+## 暂定标题
+添加表单状态、本地持久化及少量重构
 
-## Background
-The learner should finish Stage 1 by managing real input state and preserving user data locally, then cleaning up the project structure enough to support Stage 2.
+## 背景
+学习者应通过管理真实的输入状态并在本地保存用户数据来完成阶段 1 的任务，随后对项目结构进行必要的清理，以为阶段 2 的开发提供良好支持。
 
-## Goal
-Add a small CRUD-style flow with browser storage and perform a light structural cleanup.
+## 目标
+实现一个结合浏览器存储（Local Storage）的简易 CRUD（增删改查）流程，并进行轻量级的结构优化。
 
-## Placeholder Sections
-- detailed functional requirements
-- acceptance criteria
-- startup instructions
-- suggested files
-- common pitfalls
-- review focus
-
+## 占位章节
+- 详细功能需求
+- 验收标准
+- 启动说明
+- 建议文件
+- 常见坑点
+- 评审重点

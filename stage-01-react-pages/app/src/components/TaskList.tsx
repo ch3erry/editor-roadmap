@@ -11,7 +11,7 @@ export const TaskList = ({ tasks }: TaskListProps) => {
       {/* 1. 列表头部与元信息 */}
       <div className="task-list-header">
         <h2 className="task-list-title">任务列表</h2>
-        <p className="task-meta">{tasks.length} 个静态示例任务</p>
+        <p className="task-meta">当前视图共 {tasks.length} 个任务</p>
       </div>
 
       {/* 2. 任务列表容器 */}

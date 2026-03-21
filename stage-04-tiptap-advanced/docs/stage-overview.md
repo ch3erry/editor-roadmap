@@ -1,21 +1,21 @@
-# Stage 4 Overview: Tiptap Advanced
+# 阶段 4 概览：Tiptap 进阶
 
-## Objective
-Teach extension-oriented editor development and the design decisions needed once an editor stops being a demo and starts behaving like a product feature.
+## 目标 (Objective)
+教授以扩展（Extension）为导向的编辑器开发，以及当编辑器从简单的演示 Demo 转变为真正的产品功能时，所需的架构设计决策。
 
-## Scope
-- custom extensions or editor behaviors
-- richer node or mark interactions
-- UX polish around editing workflows
-- refactoring editor logic into clearer modules
+## 范围 (Scope)
+* 自定义扩展或编辑器行为
+* 更丰富的节点（Node）或标记（Mark）交互逻辑
+* 围绕编辑工作流的 UX（用户体验）打磨
+* 将编辑器逻辑重构为更清晰的模块
 
-## Requirement Sequence
+## 需求序列 (Requirement Sequence)
+
 ### REQ-01
-Implement one focused custom editor capability.
+实现一个针对性的自定义编辑器功能。
 
 ### REQ-02
-Add one more complex editor interaction or content type.
+添加一个更复杂的编辑器交互或内容类型。
 
 ### REQ-03
-Refactor and stabilize the editor project.
-
+重构并稳定编辑器项目。
