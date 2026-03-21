@@ -1,7 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import type { FilterValue } from './types/filter'
-import { tasks } from './data/tasks'
+import { initialTasks } from './data/tasks'
 import { Header } from './components/Header'
 import { SummaryCards } from './components/SummaryCards'
 import { FilterBar } from './components/FilterBar'
@@ -9,6 +9,7 @@ import { TaskList } from './components/TaskList'
 
 function App() {
   const [filter, setFilter] = useState<FilterValue>('all')
+  const [tasks, setTasks] = useState(initialTasks)
 
   const totalCount = tasks.length
   const completedCount = tasks.filter(
