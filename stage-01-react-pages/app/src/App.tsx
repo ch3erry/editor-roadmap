@@ -11,7 +11,7 @@ function App() {
       <Header />
       <SummaryCards />
       <FilterBar />
-      <TaskList tasks={tasks}/>
+      <TaskList tasks={tasks} />
     </main>
   )
 }
