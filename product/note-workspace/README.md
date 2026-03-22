@@ -44,6 +44,15 @@ Scope（个人 / 组织）
 - 共用 `Sidebar + Topbar + Main Content` 的应用壳
 - 页面区别只发生在主内容区，不做视觉系统分裂
 
+## 页面深度策略
+当前产品要求把 4 个页面全部做出来，但不要求它们同等复杂。
+
+推荐深度分层：
+- `Dashboard`：中等深度，承担工作台首页职责
+- `Wiki Browser`：最高优先级，承担核心层级浏览职责
+- `Document Detail`：中等偏浅，只读承载即可
+- `Settings`：浅实现，主要补齐应用完整性
+
 ## 设计资产
 当前阶段 2 的设计资产位于：
 - 设计源文件：`stage-02-react-engineering/design_docs/note-workspace-ui.pen`

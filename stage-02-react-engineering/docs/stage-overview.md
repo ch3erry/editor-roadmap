@@ -16,12 +16,12 @@
 
 它包含 4 个页面：
 - `Dashboard`
-- `Notes`
-- `Note Detail`
+- `Wiki Browser`
+- `Document Detail`
 - `Settings`
 
 其中：
-- `Note Detail` 在本阶段保持只读
+- `Document Detail` 在本阶段保持只读
 - 第三阶段将在这一页中接入 `Tiptap`
 
 ## 涵盖范围
@@ -57,7 +57,7 @@
 - 路由系统
 - 共享布局
 - Mock 数据服务
-- `Dashboard / Notes / Note Detail / Settings`
+- `Dashboard / Wiki Browser / Document Detail / Settings`
 - `loading / empty / error` 三类异步状态
 
 ### REQ-03：逻辑抽离与工程整理
@@ -71,9 +71,18 @@
 ## 阶段意义
 第二阶段的目标不是直接做编辑器，而是先把承载编辑器的应用壳搭起来。
 
+## 页面深度分层策略
+第二阶段会把 4 个页面都做出来，但不会要求它们同等复杂。
+
+推荐深度分层：
+- `Dashboard`：中等深度，需要像真实工作台首页
+- `Wiki Browser`：最高优先级，是阶段 2 的核心业务页
+- `Document Detail`：中等偏浅，只读即可，为阶段 3 预留编辑器容器
+- `Settings`：浅实现，用来补齐应用壳完整性与表单型页面基线
+
 这样到了第三阶段：
 - 不需要换产品
 - 不需要重做路由
-- 只需要把 `Note Detail` 的只读内容升级成 `Tiptap Editor`
+- 只需要把 `Document Detail` 的只读内容升级成 `Tiptap Editor`
 
 这也是为什么阶段 2 选“轻量笔记工作台”，而不是继续扩展阶段 1 的任务面板。
