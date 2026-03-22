@@ -175,6 +175,132 @@
   box-shadow: none;
 }
 
+  .task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    background: var(--surface-secondary);
+  }
+
+  .task-form-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .task-form-title {
+    font-family: 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+
+  .task-form-description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .task-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .task-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .task-form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .task-form-input,
+  .task-form-textarea {
+    width: 100%;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    background: var(--surface-primary);
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--text-primary);
+    outline: none;
+    transition:
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+  }
+
+  .task-form-input::placeholder,
+  .task-form-textarea::placeholder {
+    color: var(--text-secondary);
+  }
+
+  .task-form-input:focus,
+  .task-form-textarea:focus {
+    border-color: #111111;
+    box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.08);
+  }
+
+  .task-form-textarea {
+    min-height: 96px;
+    resize: vertical;
+  }
+
+  .task-form-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .task-form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: var(--radius-pill);
+    background: #111111;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .task-form-submit:hover {
+    opacity: 0.92;
+  }
+
+  .task-form-submit:active {
+    transform: translateY(1px);
+  }
+
+  .task-selection {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .task-checkbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #111111;
+    cursor: pointer;
+  }
+
+  .task-info {
+    flex: 1;
+  }
+
 .task-section {
   display: flex;
   flex-direction: column;
@@ -312,5 +438,17 @@
 
   .task-title {
     font-size: 16px;
+  }
+  
+    .task-form {
+    padding: 16px;
+  }
+
+  .task-form-actions {
+    justify-content: stretch;
+  }
+
+  .task-form-submit {
+    width: 100%;
   }
 }
